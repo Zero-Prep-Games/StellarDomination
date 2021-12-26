@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8420385510491980801}
   - component: {fileID: 4451306486518468458}
   - component: {fileID: 7878922467613539813}
-  - component: {fileID: 3596497608859944685}
+  - component: {fileID: 6567364113187482202}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -103,7 +103,7 @@ MonoBehaviour:
   ShipMass: 1
   ShipMaxSpeed: 25
   ShipRotation: 100
-  speedDisplay: {fileID: 0}
+  ShipSpeed: 0
 --- !u!114 &7441928412622274847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  CentrePoint: {fileID: 7648863016508860417}
+  RotationPoint: {fileID: 0}
 --- !u!114 &8420385510491980801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,16 +163,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.05
   target: {fileID: 9204381735910666281}
-  clientAuthority: 0
+  clientAuthority: 1
   syncVelocity: 1
   clearVelocity: 0
   velocitySensitivity: 0.1
   syncAngularVelocity: 1
   clearAngularVelocity: 0
   angularVelocitySensitivity: 0.1
---- !u!114 &3596497608859944685
+--- !u!114 &6567364113187482202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   sendInterval: 0.05
   syncPosition: 0
   syncRotation: 1

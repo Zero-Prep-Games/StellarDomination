@@ -9,6 +9,8 @@ namespace com.baltamstudios.stellardomination
     {
         // Start is called before the first frame update
         public Text shipSpeed;
+        public Ship localPlayer;
+
         void Start()
         {
 
@@ -17,7 +19,10 @@ namespace com.baltamstudios.stellardomination
         // Update is called once per frame
         void Update()
         {
-
+            if (localPlayer != null)
+            {
+                shipSpeed.text = string.Format("{0}", localPlayer.GetComponent<PlayerMovement>().ShipSpeed);
+            }
         }
     }
 }
