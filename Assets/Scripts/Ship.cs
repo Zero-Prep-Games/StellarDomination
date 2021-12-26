@@ -8,12 +8,16 @@ namespace com.baltamstudios.stellardomination
     [RequireComponent(typeof(PlayerMovement))]
     public class Ship : NetworkBehaviour
     {
-
+        public UIDisplay playerUI;
         public Transform RotationPoint;
 
         new Renderer renderer;
 
-        // Start is called before the first frame update
+        public override void OnStartClient()
+        {
+            FindObjectOfType<UIDisplay>().localPlayer = this;
+        }
+
         void Start()
         {
             if (RotationPoint == null) RotationPoint = transform; //ensure center is initialised.
