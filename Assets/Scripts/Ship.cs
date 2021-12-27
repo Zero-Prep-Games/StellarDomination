@@ -16,6 +16,8 @@ namespace com.baltamstudios.stellardomination
         public override void OnStartClient()
         {
             FindObjectOfType<UIDisplay>().localPlayer = this;
+            var cam = FindObjectOfType<Camera>();
+            cam.GetComponent<CameraZoom>().PollPlayers();
         }
 
         void Start()
@@ -27,8 +29,9 @@ namespace com.baltamstudios.stellardomination
 
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
+            
 
         }
 

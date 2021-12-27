@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 9204381735910666286}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7598749899380060276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728604020487145587}
+  m_Layer: 0
+  m_Name: GunMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728604020487145587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598749899380060276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.12, z: 1.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9204381735910666286}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9204381735910666285
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,9 +76,11 @@ GameObject:
   - component: {fileID: 4451306486518468458}
   - component: {fileID: 7878922467613539813}
   - component: {fileID: 6567364113187482202}
+  - component: {fileID: -1871028002653207740}
+  - component: {fileID: 6388492746097085583}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,6 +98,7 @@ Transform:
   m_Children:
   - {fileID: 223912911446440417}
   - {fileID: 7648863016508860417}
+  - {fileID: 728604020487145587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,7 +116,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &3589047018554438653
 MonoBehaviour:
@@ -118,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  playerUI: {fileID: 0}
   RotationPoint: {fileID: 0}
 --- !u!114 &8420385510491980801
 MonoBehaviour:
@@ -201,6 +235,38 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &-1871028002653207740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204381735910666285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 170797882adeced4cbb3aa468ad8d4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  gunMuzzle: {fileID: 728604020487145587}
+  bulletPrefab: {fileID: 8515699485880891532, guid: 3d147bbd0e8c02741a73f788cdefe598, type: 3}
+  damage: 10
+  duration: 5
+  energyCost: 1
+--- !u!65 &6388492746097085583
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204381735910666285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0256929, y: 1.1541586, z: 4.4171844}
+  m_Center: {x: -0.01284647, y: 0.53955555, z: -0.2440846}
 --- !u!1001 &329262939823283722
 PrefabInstance:
   m_ObjectHideFlags: 0

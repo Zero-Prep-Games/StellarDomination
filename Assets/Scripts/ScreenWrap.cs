@@ -9,7 +9,7 @@ namespace com.baltamstudios.stellardomination
 {
      public class ScreenWrap : NetworkBehaviour
     {
-        
+        Rigidbody rb;
         Renderer[] renderers;
         // Start is called before the first frame update
         void Start()
@@ -21,6 +21,8 @@ namespace com.baltamstudios.stellardomination
                 
                 Debug.Log("ScreenWrap: Missing renderer in " + name + ". Did you make changes to the object?");
             }
+
+            rb = GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -30,7 +32,7 @@ namespace com.baltamstudios.stellardomination
 
             var viewportPosition = cam.WorldToViewportPoint(transform.position);
 
-
+            Vector3 current_position = rb.position;
 
             var warp = false;
 
@@ -48,11 +50,25 @@ namespace com.baltamstudios.stellardomination
 
             if (warp)
             {
-                transform.position = cam.ViewportToWorldPoint(viewportPosition);
+                
+                Debug.Log("Warping from: " + cam.WorldToViewportPoint(transform.position) + ", to: " + viewportPosition);
+
+                Plane plane = new Plane(Vector3.up, 0);
+                float distance;
+                Ray ray = cam.ViewportPointToRay(viewportPosition);
+                if (plane.Raycast(ray, out distance))
+                {
+                    Vector3 newPosition = ray.GetPoint(distance);
+                    newPosition.y = 0;
+                    rb.position = newPosition;
+                    
+                }
+                
             }
          
            
         }
+
 
         bool CheckRenderers()
         {
