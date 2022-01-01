@@ -13,13 +13,8 @@ namespace com.baltamstudios.stellardomination
 
         new Renderer renderer;
 
-        public override void OnStartClient()
-        {
-            FindObjectOfType<UIDisplay>().localPlayer = this;
-            var cam = FindObjectOfType<Camera>();
-            cam.GetComponent<CameraZoom>().PollPlayers();
-            cam.GetComponent<CameraUtils>().RefreshPlayers();
-        }
+
+
 
         void Start()
         {

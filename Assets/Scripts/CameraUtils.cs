@@ -7,6 +7,11 @@ namespace com.baltamstudios.stellardomination
     public class CameraUtils : MonoBehaviour
     {
         Ship[] playerShips;
+        public int NumTargets
+        {
+            get { return playerShips.Length; }
+        }
+
         public Vector3 centreOfMass;
         public Vector3 cameraPositionOffset;
 
@@ -28,10 +33,14 @@ namespace com.baltamstudios.stellardomination
         public void RefreshPlayers()
         {
             playerShips = FindObjectsOfType<Ship>();
+            Debug.Log("Player connected, updating number of players in camera. Total ships: "+playerShips.Length);
+
         }
         // Update is called once per frame
         void FixedUpdate()
         {
+            playerShips = FindObjectsOfType<Ship>();
+
             if (playerShips.Length > 0)
             {
                 maxX = 0;
