@@ -11,6 +11,8 @@ namespace com.baltamstudios.stellardomination
     {
         Rigidbody rb;
         Renderer[] renderers;
+        float lastWarpTime;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -48,6 +50,7 @@ namespace com.baltamstudios.stellardomination
                 viewportPosition.y = 1 - viewportPosition.y;
             }
 
+            //if (warp && (Time.time - lastWarpTime > 0.5f))
             if (warp)
             {
                 
@@ -60,8 +63,8 @@ namespace com.baltamstudios.stellardomination
                 {
                     Vector3 newPosition = ray.GetPoint(distance);
                     newPosition.y = 0;
-                    rb.position = newPosition;
-                    
+                    rb.MovePosition(newPosition);
+                    lastWarpTime = Time.time;
                 }
                 
             }

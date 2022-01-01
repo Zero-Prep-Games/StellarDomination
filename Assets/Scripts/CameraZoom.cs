@@ -46,14 +46,14 @@ namespace com.baltamstudios.stellardomination
             var dY = maxY - minY;
             if (dX > 0.75 || dY > 0.6)
             {
-                cam.orthographicSize *= 2f;
+                //cam.orthographicSize *= 2f;
             }
             else if (dX < 0.3 && dY < 0.4)
             {
-                cam.orthographicSize *= 0.5f;
+                //cam.orthographicSize *= 0.5f;
             }
 
-            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, MIN_SIZE, MAX_SIZE);
+            //cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, MIN_SIZE, MAX_SIZE);
 
         }
     }

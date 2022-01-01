@@ -18,6 +18,7 @@ namespace com.baltamstudios.stellardomination
             FindObjectOfType<UIDisplay>().localPlayer = this;
             var cam = FindObjectOfType<Camera>();
             cam.GetComponent<CameraZoom>().PollPlayers();
+            cam.GetComponent<CameraUtils>().RefreshPlayers();
         }
 
         void Start()
