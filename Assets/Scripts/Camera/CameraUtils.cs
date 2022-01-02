@@ -15,19 +15,36 @@ namespace com.baltamstudios.stellardomination
         public Vector3 centreOfMass;
         public Vector3 cameraPositionOffset;
 
+        [SerializeField]
         //viewport positions
         public float minX;
+        [SerializeField]
         public float maxX;
+        [SerializeField]
         public float minY;
+        [SerializeField]
         public float maxY;
 
         public Camera cam;
+        private CameraZoom cameraZoom;
+        [SerializeField]
+        GameObject DebugBox;
+
+        public bool IsMaxZoomLevel
+        {
+            get { return cameraZoom.IsMaxZoomLevel; }
+        }
         // Start is called before the first frame update
+        private void Awake()
+        {
+            cam = GetComponent<Camera>();
+        }
         void Start()
         {
             cam = GetComponent<Camera>();
             playerShips = new Ship[0];
-            cameraPositionOffset = transform.position;   
+            cameraPositionOffset = transform.position;
+            cameraZoom = GetComponent<CameraZoom>();
         }
 
         public void RefreshPlayers()
@@ -37,7 +54,7 @@ namespace com.baltamstudios.stellardomination
 
         }
         // Update is called once per frame
-        void FixedUpdate()
+        void Update()
         {
             playerShips = FindObjectsOfType<Ship>();
 
@@ -60,6 +77,7 @@ namespace com.baltamstudios.stellardomination
                 }
 
                 centreOfMass /= playerShips.Length;
+                DebugBox.transform.position = centreOfMass;
             }
             else
             {

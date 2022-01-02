@@ -7,7 +7,8 @@ namespace com.baltamstudios.stellardomination
 {
     public class Bullet : NetworkBehaviour
     {
-        
+        public GameObject owner;
+
         
         // Start is called before the first frame update
         void Start()

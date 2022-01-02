@@ -21,6 +21,12 @@ namespace com.baltamstudios.stellardomination
         float ShipRotation = 45f; //degrees/sec
         Ship shipObject;
 
+        
+        bool warpFlag = false;
+        
+        [SyncVar(hook = nameof(Warp))]
+        public Vector3 targetPosition;
+
         public float ShipSpeed;
 
         // Start is called before the first frame update
@@ -28,6 +34,7 @@ namespace com.baltamstudios.stellardomination
         {
             rb = GetComponent<Rigidbody>();
             shipObject = GetComponent<Ship>();
+            rb.mass = ShipMass;
         }
 
 
@@ -42,10 +49,14 @@ namespace com.baltamstudios.stellardomination
 
                 ShipSpeed = rb.velocity.magnitude;
             }
+            if (warpFlag)
+            {
+                rb.MovePosition(targetPosition);
+                warpFlag = false;
+            }
 
         }
 
-        //[Command]
         public void MoveShip(float h, float v)
         {
             //Add thrust
@@ -58,6 +69,12 @@ namespace com.baltamstudios.stellardomination
             Quaternion deltaRotation = Quaternion.Euler(rotationAngle * Time.fixedDeltaTime);
             rb.MoveRotation(deltaRotation * rb.rotation);
             
+        }
+
+        void Warp(Vector3 oldVal, Vector3 newVal) 
+        {
+            warpFlag = true;
+            targetPosition = newVal;
         }
     }
 }

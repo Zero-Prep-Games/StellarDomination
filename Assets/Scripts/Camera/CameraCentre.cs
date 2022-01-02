@@ -18,12 +18,8 @@ namespace com.baltamstudios.stellardomination
 
 
         // Update is called once per frame
-        void FixedUpdate()
+        void Update()
         {
-
-
-
-
             transform.position = cameraUtils.centreOfMass + cameraUtils.cameraPositionOffset;
         }
     }
