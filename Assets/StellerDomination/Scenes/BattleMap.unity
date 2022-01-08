@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &323661759
 Transform:
   m_ObjectHideFlags: 0
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   - 7.5
   - 15
   - 30
-  zoomOutThreshold: 0.1
+  zoomOutThreshold: 0.05
   zoomInThreshold: 0.3
 --- !u!114 &1138865437
 MonoBehaviour:
@@ -2334,6 +2334,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1138865435}
     m_Modifications:
+    - target: {fileID: 7260273683934829000, guid: a22723fcbc686f343837de1c16d27146, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7260273683934829002, guid: a22723fcbc686f343837de1c16d27146, type: 3}
       propertyPath: m_Name
       value: CentreOf Mass
@@ -2380,6 +2384,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7260273683934829006, guid: a22723fcbc686f343837de1c16d27146, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8093766673758337360, guid: a22723fcbc686f343837de1c16d27146, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
