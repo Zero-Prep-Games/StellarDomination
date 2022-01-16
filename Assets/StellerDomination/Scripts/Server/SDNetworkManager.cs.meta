@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 75c3ecaa79a84e44e95e6d993e7ce012
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - transport: {instanceID: 0}
+  - authenticator: {instanceID: 0}
+  - playerPrefab: {instanceID: 0}
+  - prefabFighter: {fileID: 7441928412622274847, guid: 9cbf55e2d72fd294bb598cf0d8115b51, type: 3}
+  - prefabCruiser: {fileID: 7441928412622274847, guid: e1127ca8240203b40b210f195983808a, type: 3}
+  - prefabCruiserAlt: {fileID: 7441928412622274847, guid: 6d446e10b016f9147ad1d593642f605c, type: 3}
+  - prefabCarrier: {fileID: 7441928412622274847, guid: e412f82a2e70a8248b35354922f14d7b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

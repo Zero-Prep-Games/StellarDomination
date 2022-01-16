@@ -6,7 +6,7 @@ using com.baltamstudios.stellardomination.server;
 
 namespace com.baltamstudios.stellardomination
 {
-    [RequireComponent(typeof(PlayerMovement))]
+    [RequireComponent(typeof(ShipMovement))]
     public class Ship : NetworkBehaviour
     {
         public UIDisplay playerUI;
@@ -21,6 +21,7 @@ namespace com.baltamstudios.stellardomination
         [SyncVar(hook = nameof(SetName))]
         string playerName;
 
+        ShipMovement shipMovement;
         void Start()
         {
             if (RotationPoint == null) RotationPoint = transform; //ensure center is initialised.
@@ -29,6 +30,7 @@ namespace com.baltamstudios.stellardomination
             {
                 Debug.Log("Couldn't find renderer in ship");
             }
+            shipMovement = GetComponent<ShipMovement>();
         }
 
         public override void OnStartLocalPlayer()
@@ -53,6 +55,10 @@ namespace com.baltamstudios.stellardomination
         {
             playerName = _name;
             hullColor = _col;
+        }
+        public void MoveShip(float h, float v)
+        {
+            shipMovement.MoveShip(h, v);
         }
 
     }

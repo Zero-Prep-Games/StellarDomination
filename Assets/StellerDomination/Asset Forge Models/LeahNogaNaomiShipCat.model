@@ -25,7 +25,6 @@
 [name:;collection:Aircraft;type:window_domeRound;position:(1.0000, 1.0000, 3.5500);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 2.1000);group:;locked:False;hidden:False;materials:shield+shield;]
 [name:;collection:Aircraft;type:engine_turbineSquare;position:(-0.3500, 0.0000, 1.0000);rotation:(0.0000, 180.0000, 0.0000);scale:(2.3000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:_defaultMat+metal+shield+dark;]
 [name:;collection:Aircraft;type:engine_turbineSquare;position:(2.3450, 0.0000, 1.0000);rotation:(0.0000, 180.0000, 0.0000);scale:(2.3100, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:_defaultMat+metal+shield+dark;]
-[name:;collection:Greebles;type:detail_ventStretched;position:(0.0000, 0.0000, -5.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:_defaultMat+dark;]
 [name:;collection:Greebles;type:window_round;position:(0.8000, 0.7000, -0.1000);rotation:(26.5651, 180.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:metal+glass;]
 [name:;collection:Aircraft;type:hull_cockpitSlant;position:(1.0000, 0.0000, 0.0000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:_defaultMat+metal+shield;]
 [name:;collection:Primitives;type:cylinderHollow_half;position:(1.0000, 0.1000, -0.5000);rotation:(270.0000, 0.0000, 0.0000);scale:(0.5000, 0.0500, 0.5000);group:;locked:False;hidden:False;materials:_defaultMat;]

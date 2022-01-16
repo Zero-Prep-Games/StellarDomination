@@ -7,7 +7,7 @@ using Mirror;
 namespace com.baltamstudios.stellardomination
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PlayerMovement : NetworkBehaviour
+    public class ShipMovement : NetworkBehaviour
     {
 
         Rigidbody rb;
@@ -37,25 +37,6 @@ namespace com.baltamstudios.stellardomination
             rb.mass = ShipMass;
         }
 
-
-        void FixedUpdate()
-        {
-            if (this.isLocalPlayer)
-            {
-                float v = Mathf.Clamp(Input.GetAxis("Vertical"), 0, 1f); //only use Thrust, no reverse.
-                float h = Input.GetAxis("Horizontal");
-
-                MoveShip(h, v);
-
-                ShipSpeed = rb.velocity.magnitude;
-            }
-            if (warpFlag)
-            {
-                rb.MovePosition(targetPosition);
-                warpFlag = false;
-            }
-
-        }
 
         public void MoveShip(float h, float v)
         {

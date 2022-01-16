@@ -153,6 +153,8 @@ MonoBehaviour:
   syncInterval: 0.1
   playerUI: {fileID: 0}
   RotationPoint: {fileID: 0}
+  hullRenderer: {fileID: 0}
+  hullColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4451306486518468458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +170,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   visible: 0
-  m_AssetId: e412f82a2e70a8248b35354922f14d7b
+  m_AssetId: e1127ca8240203b40b210f195983808a
   hasSpawned: 0
 --- !u!114 &7878922467613539813
 MonoBehaviour:
