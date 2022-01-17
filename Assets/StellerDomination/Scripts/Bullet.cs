@@ -10,14 +10,21 @@ namespace com.baltamstudios.stellardomination
         [SyncVar]
         public GameObject owner;
         [SyncVar]
-        public float damage;
+        public int damage;
 
         public void OnTriggerEnter(Collider other)
         {
             if (other.gameObject == owner) return;
             if (other.gameObject.tag.Equals("Ship"))
             {
-                Debug.Log(owner.name + " hit " + other.name + "for " + damage + " damage");
+                //Debug.Log(owner.name + " hit " + other.name + "for " + damage + " damage");
+                if (isServer)
+                {
+                    other.GetComponent<Ship>().ApplyDamage(damage);
+                    Destroy(gameObject); //destroyed on clients since this is the server.
+                }
+
+
             }
         }
     }

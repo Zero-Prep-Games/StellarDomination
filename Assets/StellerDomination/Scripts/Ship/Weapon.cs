@@ -14,9 +14,9 @@ namespace com.baltamstudios.stellardomination
         public Bullet bulletPrefab;
         GameObject owner;
 
-        public float damage = 10f;
+        public int damage = 10;
         public float duration = 0.5f; //lifetime in seconds
-        public float energyCost = 1f; //energy cost
+        public int energyCost = 1; //energy cost
         public float bulletSpeed = 100f;
 
         bool firePressed = false;

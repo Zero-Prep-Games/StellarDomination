@@ -153,6 +153,8 @@ MonoBehaviour:
   syncInterval: 0.1
   playerUI: {fileID: 0}
   RotationPoint: {fileID: 0}
+  crew: 50
+  energy: 25
   hullRenderer: {fileID: 0}
 --- !u!114 &4451306486518468458
 MonoBehaviour:
@@ -240,7 +242,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8515699485880891532, guid: 3d147bbd0e8c02741a73f788cdefe598, type: 3}
   damage: 10
   duration: 5
-  energyCost: 1
+  energyCost: 10
   bulletSpeed: 20
 --- !u!65 &6388492746097085583
 BoxCollider:

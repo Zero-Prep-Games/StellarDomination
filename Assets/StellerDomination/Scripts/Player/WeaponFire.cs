@@ -8,7 +8,7 @@ namespace com.baltamstudios.stellardomination
     public class WeaponFire : NetworkBehaviour
     {
         bool firePressed = false;
-
+        // Weapon weapon;
         PlayerContainer player;
         private void Start()
         {
@@ -40,13 +40,23 @@ namespace com.baltamstudios.stellardomination
         [Command]
         public void CmdFire()
         {
-            Weapon weapon = player.playerShip.GetComponent<Weapon>();
-            Bullet bullet = Instantiate(weapon.bulletPrefab, weapon.gunMuzzle.transform.position, Quaternion.identity);
-            bullet.owner = player.playerShip.gameObject;
-            bullet.damage = weapon.damage;
-            Destroy(bullet.gameObject, weapon.duration);
-            bullet.GetComponent<Rigidbody>().AddForce(weapon.gunMuzzle.transform.forward.normalized * weapon.bulletSpeed, ForceMode.VelocityChange);
-            NetworkServer.Spawn(bullet.gameObject);
+            if (player.playerShip != null && player.playerShip.weapon.energyCost <= player.playerShip.energy)
+            {
+                Weapon weapon = player.playerShip.weapon;
+                Bullet bullet = Instantiate(weapon.bulletPrefab, weapon.gunMuzzle.transform.position, Quaternion.identity);
+                bullet.owner = player.playerShip.gameObject;
+                bullet.damage = weapon.damage;
+                Destroy(bullet.gameObject, weapon.duration);
+                bullet.GetComponent<Rigidbody>().AddForce(weapon.gunMuzzle.transform.forward.normalized * weapon.bulletSpeed, ForceMode.VelocityChange);
+                NetworkServer.Spawn(bullet.gameObject);
+                player.playerShip.energy -= weapon.energyCost;
+
+            }
+            else if (player.playerShip != null)
+            {
+                Debug.Log($"{name} Out of energy");
+            }
+            
         }
             
     }

@@ -11,6 +11,16 @@ namespace com.baltamstudios.stellardomination
     {
         public UIDisplay playerUI;
         public Transform RotationPoint;
+        public int crew;
+        [SerializeField]
+        int MaxCrew = 50;
+        public float energy;
+        [SerializeField]
+        float MaxEnergy = 25f;
+        [SerializeField, Tooltip("Energy units gained per second.")]
+        float EnergyRechargeRate = 5f;
+
+        public Weapon weapon;
 
         [SerializeField]
         Renderer hullRenderer;
@@ -18,6 +28,9 @@ namespace com.baltamstudios.stellardomination
         ShipMovement shipMovement;
         void Start()
         {
+            crew = MaxCrew;
+            energy = MaxEnergy;
+
             if (RotationPoint == null) RotationPoint = transform; //ensure center is initialised.
             hullRenderer = GetComponentInChildren<MeshRenderer>();
             if (hullRenderer == null)
@@ -25,8 +38,19 @@ namespace com.baltamstudios.stellardomination
                 Debug.Log("Couldn't find renderer in ship");
             }
             shipMovement = GetComponent<ShipMovement>();
+            weapon = GetComponentInChildren<Weapon>();
         }
 
+        private void Update()
+        {
+            //could do this for server only and apply a syncvar, but it's fine to do it on the client, since the server determines ability to shoot anyway.
+
+            //Recharge energy
+            if (energy < MaxEnergy)
+            {
+                energy += EnergyRechargeRate * Time.deltaTime;
+            }
+        }
 
         public void SetColor(Color col)
         {
@@ -35,8 +59,32 @@ namespace com.baltamstudios.stellardomination
         
         public void MoveShip(float h, float v)
         {
-            shipMovement.MoveShip(h, v);
+            if (shipMovement != null)
+            {
+                shipMovement.MoveShip(h, v);
+            }
+            else
+            {
+                Debug.Log($"{name}: Why is the ship moving?");
+            }
+            
         }
+
+        public void ApplyDamage(int dmg)
+        {
+            //just double-checking
+            if (isServer)
+            {
+                crew -= dmg;
+                if (crew <= 0)
+                {
+                    Debug.Log($"{name}'s ship destroyed!");
+                }
+                //syncvar should take care of the rest
+            }
+        }
+
+
 
     }
 }

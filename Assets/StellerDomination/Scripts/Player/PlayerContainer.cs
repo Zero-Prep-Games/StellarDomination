@@ -16,7 +16,7 @@ namespace com.baltamstudios.stellardomination
         [SyncVar]
         public bool isReady = false;
         [SyncVar]
-        public Ship playerShip;
+        public Ship playerShip = null;
 
         [SerializeField]
         [SyncVar]
@@ -24,6 +24,8 @@ namespace com.baltamstudios.stellardomination
         [SyncVar(hook = nameof(OnSetPlayerName))]
         [SerializeField]
         string playerName;
+
+        public BattleUI battleUI = null;
 
         public void Start()
         {
@@ -42,6 +44,21 @@ namespace com.baltamstudios.stellardomination
             CmdSetupPlayer(newName, color);
         }
 
+        public void Update()
+        {
+            if (isServer && battleUI != null)
+            { //on the server, we need to copy the energy and crew states to the UI
+                if ((int)playerShip.energy != battleUI.Energy)
+                {
+                    battleUI.Energy = (int)playerShip.energy;
+                }
+                if (playerShip.crew != battleUI.Crew)
+                {
+                    battleUI.Crew = playerShip.crew;
+                }
+                
+            }
+        }
         public void ChooseShip(SDPlayer.ShipClass s)
         {
             if (isLocalPlayer)
