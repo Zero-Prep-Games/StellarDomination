@@ -15,12 +15,6 @@ namespace com.baltamstudios.stellardomination
         [SerializeField]
         Renderer hullRenderer;
 
-        [SerializeField]
-        [SyncVar(hook = nameof(SetColor))]
-        Color hullColor;
-        [SyncVar(hook = nameof(SetName))]
-        string playerName;
-
         ShipMovement shipMovement;
         void Start()
         {
@@ -33,29 +27,12 @@ namespace com.baltamstudios.stellardomination
             shipMovement = GetComponent<ShipMovement>();
         }
 
-        public override void OnStartLocalPlayer()
-        {
-            base.OnStartLocalPlayer();
-            string newName = "Player" + Random.Range(100, 999);
-            Color color = Random.ColorHSV();
-            CmdSetupPlayer(newName, color);
-        }
 
-        public void SetColor(Color oldVal, Color newVal) {
-            GetComponentInChildren<Renderer>().materials[1].color = newVal;
+        public void SetColor(Color col)
+        {
+            GetComponentInChildren<Renderer>().materials[1].color = col;
         }
         
-        public void SetName(string oldVal, string newVal)
-        {
-            gameObject.name = newVal;
-        }
-
-        [Command]
-        public void CmdSetupPlayer(string _name, Color _col)
-        {
-            playerName = _name;
-            hullColor = _col;
-        }
         public void MoveShip(float h, float v)
         {
             shipMovement.MoveShip(h, v);

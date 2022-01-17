@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 6388492746097085583}
   m_Layer: 0
   m_Name: ShipCruiser
-  m_TagString: Player
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,6 @@ MonoBehaviour:
   playerUI: {fileID: 0}
   RotationPoint: {fileID: 0}
   hullRenderer: {fileID: 0}
-  hullColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4451306486518468458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,9 +239,9 @@ MonoBehaviour:
   gunMuzzle: {fileID: 728604020487145587}
   bulletPrefab: {fileID: 8515699485880891532, guid: 3d147bbd0e8c02741a73f788cdefe598, type: 3}
   damage: 10
-  duration: 0.25
+  duration: 5
   energyCost: 1
-  bulletSpeed: 100
+  bulletSpeed: 20
 --- !u!65 &6388492746097085583
 BoxCollider:
   m_ObjectHideFlags: 0

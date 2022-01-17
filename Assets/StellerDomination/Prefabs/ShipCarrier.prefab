@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 6388492746097085583}
   m_Layer: 0
   m_Name: ShipCarrier
-  m_TagString: Player
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,6 @@ MonoBehaviour:
   playerUI: {fileID: 0}
   RotationPoint: {fileID: 0}
   hullRenderer: {fileID: 0}
-  hullColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &4451306486518468458
 MonoBehaviour:
   m_ObjectHideFlags: 0

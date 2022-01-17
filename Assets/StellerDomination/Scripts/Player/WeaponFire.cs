@@ -43,6 +43,7 @@ namespace com.baltamstudios.stellardomination
             Weapon weapon = player.playerShip.GetComponent<Weapon>();
             Bullet bullet = Instantiate(weapon.bulletPrefab, weapon.gunMuzzle.transform.position, Quaternion.identity);
             bullet.owner = player.playerShip.gameObject;
+            bullet.damage = weapon.damage;
             Destroy(bullet.gameObject, weapon.duration);
             bullet.GetComponent<Rigidbody>().AddForce(weapon.gunMuzzle.transform.forward.normalized * weapon.bulletSpeed, ForceMode.VelocityChange);
             NetworkServer.Spawn(bullet.gameObject);
