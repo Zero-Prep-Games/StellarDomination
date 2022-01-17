@@ -6,54 +6,85 @@ using com.baltamstudios.stellardomination.server;
 
 namespace com.baltamstudios.stellardomination
 {
-    [RequireComponent(typeof(PlayerMovement))]
+    [RequireComponent(typeof(ShipMovement))]
     public class Ship : NetworkBehaviour
     {
         public UIDisplay playerUI;
         public Transform RotationPoint;
+        public int crew;
+        [SerializeField]
+        int MaxCrew = 50;
+        public float energy;
+        [SerializeField]
+        float MaxEnergy = 25f;
+        [SerializeField, Tooltip("Energy units gained per second.")]
+        float EnergyRechargeRate = 5f;
+
+        public Weapon weapon;
 
         [SerializeField]
         Renderer hullRenderer;
 
-        [SerializeField]
-        [SyncVar(hook = nameof(SetColor))]
-        Color hullColor;
-        [SyncVar(hook = nameof(SetName))]
-        string playerName;
-
+        ShipMovement shipMovement;
         void Start()
         {
+            crew = MaxCrew;
+            energy = MaxEnergy;
+
             if (RotationPoint == null) RotationPoint = transform; //ensure center is initialised.
             hullRenderer = GetComponentInChildren<MeshRenderer>();
             if (hullRenderer == null)
             {
                 Debug.Log("Couldn't find renderer in ship");
             }
+            shipMovement = GetComponent<ShipMovement>();
+            weapon = GetComponentInChildren<Weapon>();
         }
 
-        public override void OnStartLocalPlayer()
+        private void Update()
         {
-            base.OnStartLocalPlayer();
-            string newName = "Player" + Random.Range(100, 999);
-            Color color = Random.ColorHSV();
-            CmdSetupPlayer(newName, color);
+            //could do this for server only and apply a syncvar, but it's fine to do it on the client, since the server determines ability to shoot anyway.
+
+            //Recharge energy
+            if (energy < MaxEnergy)
+            {
+                energy += EnergyRechargeRate * Time.deltaTime;
+            }
         }
 
-        public void SetColor(Color oldVal, Color newVal) {
-            GetComponentInChildren<Renderer>().materials[1].color = newVal;
+        public void SetColor(Color col)
+        {
+            GetComponentInChildren<Renderer>().materials[1].color = col;
         }
         
-        public void SetName(string oldVal, string newVal)
+        public void MoveShip(float h, float v)
         {
-            gameObject.name = newVal;
+            if (shipMovement != null)
+            {
+                shipMovement.MoveShip(h, v);
+            }
+            else
+            {
+                Debug.Log($"{name}: Why is the ship moving?");
+            }
+            
         }
 
-        [Command]
-        public void CmdSetupPlayer(string _name, Color _col)
+        public void ApplyDamage(int dmg)
         {
-            playerName = _name;
-            hullColor = _col;
+            //just double-checking
+            if (isServer)
+            {
+                crew -= dmg;
+                if (crew <= 0)
+                {
+                    Debug.Log($"{name}'s ship destroyed!");
+                }
+                //syncvar should take care of the rest
+            }
         }
+
+
 
     }
 }

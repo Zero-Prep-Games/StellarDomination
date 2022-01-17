@@ -63,8 +63,8 @@ namespace com.baltamstudios.stellardomination.server
                 }
                 
 
-                players[0].GetComponent<PlayerMovement>().targetPosition = NewPosition0;
-                players[1].GetComponent<PlayerMovement>().targetPosition = NewPosition1;
+                players[0].GetComponent<ShipMovement>().targetPosition = NewPosition0;
+                players[1].GetComponent<ShipMovement>().targetPosition = NewPosition1;
                 
                 nextWrap = Time.time + WrapCooldown;
 

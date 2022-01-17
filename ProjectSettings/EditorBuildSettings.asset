@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/StellerDomination/Scenes/MainMenu.unity
+    guid: ac9dddfba9d176644b40714d9711730d
+  - enabled: 1
+    path: Assets/StellerDomination/Scenes/ShipSelect.unity
+    guid: e72482185efb49049b9c6b49d9db0573
+  - enabled: 1
     path: Assets/StellerDomination/Scenes/BattleMap.unity
     guid: 875f4cbdad576b64c8e71a9091bf5c54
   m_configObjects: {}

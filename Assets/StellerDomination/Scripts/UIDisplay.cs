@@ -27,7 +27,7 @@ namespace com.baltamstudios.stellardomination
             if (localPlayer != null)
             {
                 if (shipSpeed != null)
-                    shipSpeed.text = string.Format("{0}", localPlayer.GetComponent<PlayerMovement>().ShipSpeed);
+                    shipSpeed.text = string.Format("{0}", localPlayer.GetComponent<ShipMovement>().ShipSpeed);
 
                 if (PositionY != null) 
                     PositionY.text = "" + localPlayer.transform.position.y;
