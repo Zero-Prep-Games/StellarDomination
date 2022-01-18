@@ -22,15 +22,16 @@ namespace com.baltamstudios.stellardomination
         float EnergyRechargeRate = 5f;
         public PlayerContainer owner;
 
+        [SyncVar]
+        public bool shipDisabled = false;
 
         public GameObject ExplosionPrefab;
         public Weapon weapon;
-
+        [SyncVar]
         public bool HasExploded = false;
 
         [SerializeField]
         Renderer hullRenderer;
-
 
         ShipMovement shipMovement;
         void Start()
@@ -52,12 +53,15 @@ namespace com.baltamstudios.stellardomination
         private void Update()
         {
             //could do this for server only and apply a syncvar, but it's fine to do it on the client, since the server determines ability to shoot anyway.
-
-            //Recharge energy
-            if (energy < MaxEnergy)
+            if (!shipDisabled)
             {
-                energy += EnergyRechargeRate * Time.deltaTime;
+                //Recharge energy
+                if (energy < MaxEnergy)
+                {
+                    energy += EnergyRechargeRate * Time.deltaTime;
+                }
             }
+            
 
         }
 
@@ -68,7 +72,7 @@ namespace com.baltamstudios.stellardomination
         
         public void MoveShip(float h, float v)
         {
-            if (shipMovement != null)
+            if (shipMovement != null && !shipDisabled)
             {
                 shipMovement.MoveShip(h, v);
             }
@@ -94,5 +98,9 @@ namespace com.baltamstudios.stellardomination
         }
 
 
+        public void Disable()
+        {
+            shipDisabled = true;
+        }
     }
 }

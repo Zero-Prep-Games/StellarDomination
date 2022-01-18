@@ -58,11 +58,13 @@ namespace com.baltamstudios.stellardomination.server
                         //this is to create the explosion slightly closer to the camera than the ship.
                         Vector3 offset = cam.GetComponent<CameraUtils>().cameraPositionOffset.normalized * 0.1f;
                         s.HasExploded = true; //prevent this from running on subsequent frames
-                        GameObject explosion = Instantiate(ExplosionPrefab, transform.position + offset, Quaternion.identity);
+                        GameObject explosion = Instantiate(ExplosionPrefab, s.transform.position + offset, Quaternion.identity);
                         NetworkServer.Spawn(explosion);
                         Destroy(explosion, 1f);
+                        s.Disable();
                         s.owner.playerShip = null;
-                        Destroy(s.gameObject, 0.5f);
+                        
+                        Destroy(s.gameObject, 1f);
                     }
                 }
                 

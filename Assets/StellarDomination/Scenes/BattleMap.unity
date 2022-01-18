@@ -504,6 +504,7 @@ MonoBehaviour:
   syncInterval: 0.1
   player1UI: {fileID: 773922169}
   player2UI: {fileID: 1685929151}
+  ExplosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
   prefabs:
   - {fileID: 7441928412622274847, guid: 9cbf55e2d72fd294bb598cf0d8115b51, type: 3}
   - {fileID: 7441928412622274847, guid: e1127ca8240203b40b210f195983808a, type: 3}
@@ -513,6 +514,7 @@ MonoBehaviour:
   - {fileID: 1149238463}
   - {fileID: 1853157700}
   WinLoseMessage: {fileID: 1830666086}
+  shipsInPlay: []
 --- !u!114 &408992083
 MonoBehaviour:
   m_ObjectHideFlags: 0
