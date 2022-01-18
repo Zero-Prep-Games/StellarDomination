@@ -20,14 +20,17 @@ namespace com.baltamstudios.stellardomination
         float MaxEnergy = 25f;
         [SerializeField, Tooltip("Energy units gained per second.")]
         float EnergyRechargeRate = 5f;
+        public PlayerContainer owner;
+
 
         public GameObject ExplosionPrefab;
         public Weapon weapon;
 
-        bool HasExploded = false;
+        public bool HasExploded = false;
 
         [SerializeField]
         Renderer hullRenderer;
+
 
         ShipMovement shipMovement;
         void Start()
@@ -45,6 +48,7 @@ namespace com.baltamstudios.stellardomination
             weapon = GetComponentInChildren<Weapon>();
         }
 
+
         private void Update()
         {
             //could do this for server only and apply a syncvar, but it's fine to do it on the client, since the server determines ability to shoot anyway.
@@ -54,12 +58,7 @@ namespace com.baltamstudios.stellardomination
             {
                 energy += EnergyRechargeRate * Time.deltaTime;
             }
-            if (crew <= 0 && !HasExploded)
-            {
-                HasExploded = true;
-                Destroy(Instantiate(ExplosionPrefab, transform.position, Quaternion.identity),1f);
-                Destroy(gameObject, 0.5f);
-            }
+
         }
 
         public void SetColor(Color col)
