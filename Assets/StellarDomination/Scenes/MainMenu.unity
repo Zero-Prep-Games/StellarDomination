@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 317760084}
   - component: {fileID: 317760085}
-  - component: {fileID: 317760088}
   - component: {fileID: 317760086}
   m_Layer: 0
   m_Name: NetworkManager
@@ -213,23 +212,7 @@ MonoBehaviour:
   - {fileID: 9204381735910666285, guid: e1127ca8240203b40b210f195983808a, type: 3}
   - {fileID: 9204381735910666285, guid: 6d446e10b016f9147ad1d593642f605c, type: 3}
   - {fileID: 9204381735910666285, guid: e412f82a2e70a8248b35354922f14d7b, type: 3}
---- !u!114 &317760088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317760083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 555225391
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 
-  hasSpawned: 0
+  - {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!1 &716495981
 GameObject:
   m_ObjectHideFlags: 0

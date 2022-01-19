@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Mirror;
 using com.baltamstudios.stellardomination.server;
 
@@ -27,6 +28,8 @@ namespace com.baltamstudios.stellardomination
 
         public BattleUI battleUI = null;
 
+
+
         public void Start()
         {
             DontDestroyOnLoad(this);
@@ -34,10 +37,8 @@ namespace com.baltamstudios.stellardomination
         public override void OnStartLocalPlayer()
         {
             base.OnStartLocalPlayer();
-            Debug.Log("PlayerContainer for local player starting.");
+            //Debug.Log("PlayerContainer for local player starting.");
             DontDestroyOnLoad(gameObject);
-            //giving the ShipMenu a reference to the local player.
-            FindObjectOfType<ShipMenu>().playerContainer = this;
 
             string newName = "Player" + Random.Range(100, 999);
             Color color = Random.ColorHSV();
@@ -46,7 +47,7 @@ namespace com.baltamstudios.stellardomination
 
         public void Update()
         {
-            if (isServer && battleUI != null)
+            if (isServer && battleUI != null && playerShip != null)
             { //on the server, we need to copy the energy and crew states to the UI
                 if ((int)playerShip.energy != battleUI.Energy)
                 {
@@ -86,6 +87,16 @@ namespace com.baltamstudios.stellardomination
         public void OnSetPlayerName(string _old, string _new)
         {
             name = _new;
+        }
+
+        public void ShowWin()
+        {
+
+        }
+
+        public void ShowLoss()
+        {
+
         }
     }
 }

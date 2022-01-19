@@ -17,7 +17,7 @@ namespace com.baltamstudios.stellardomination
 
         void Update()
         {
-            if (isLocalPlayer && player.playerShip != null)
+            if (isLocalPlayer && player.playerShip != null && !player.playerShip.shipDisabled)
             {
                 if (Input.GetButtonDown("Fire1"))
                 {

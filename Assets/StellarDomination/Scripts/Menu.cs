@@ -4,39 +4,42 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 
-public class Menu : MonoBehaviour
+namespace com.baltamstudios.stellardomination
 {
-    public NetworkManager networkManager;
-    public InputField address;
-
-    // Start is called before the first frame update
-    void Start()
+    public class Menu : MonoBehaviour
     {
-        
-    }
+        public NetworkManager networkManager;
+        public InputField address;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void StartHost()
-    {
-        NetworkManager.singleton.StartHost();
-    }
-
-    public void StartClient()
-    {
-        if (address.text == null || address.text == "")
+        // Start is called before the first frame update
+        void Start()
         {
-            address.text = "http://127.0.0.1";
+
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            address.text = "http://" + address.text;
+
         }
-        Debug.Log("Starting client at address " + address.text);
-        NetworkManager.singleton.StartClient(new System.Uri(address.text));
+
+        public void StartHost()
+        {
+            NetworkManager.singleton.StartHost();
+        }
+
+        public void StartClient()
+        {
+            if (address.text == null || address.text == "")
+            {
+                address.text = "http://127.0.0.1";
+            }
+            else
+            {
+                address.text = "http://" + address.text;
+            }
+            Debug.Log("Starting client at address " + address.text);
+            NetworkManager.singleton.StartClient(new System.Uri(address.text));
+        }
     }
 }

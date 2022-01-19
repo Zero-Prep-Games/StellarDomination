@@ -11,7 +11,7 @@ namespace com.baltamstudios.stellardomination
         // Start is called before the first frame update
         void Start()
         {
-            Debug.Log("Implement Score module!");
+            //Debug.Log("Implement Score module!");
         }
 
         // Update is called once per frame

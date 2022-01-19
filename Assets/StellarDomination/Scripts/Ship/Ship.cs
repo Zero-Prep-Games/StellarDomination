@@ -20,11 +20,15 @@ namespace com.baltamstudios.stellardomination
         float MaxEnergy = 25f;
         [SerializeField, Tooltip("Energy units gained per second.")]
         float EnergyRechargeRate = 5f;
+        public PlayerContainer owner;
+
+        [SyncVar]
+        public bool shipDisabled = false;
 
         public GameObject ExplosionPrefab;
         public Weapon weapon;
-
-        bool HasExploded = false;
+        [SyncVar]
+        public bool HasExploded = false;
 
         [SerializeField]
         Renderer hullRenderer;
@@ -45,21 +49,20 @@ namespace com.baltamstudios.stellardomination
             weapon = GetComponentInChildren<Weapon>();
         }
 
+
         private void Update()
         {
             //could do this for server only and apply a syncvar, but it's fine to do it on the client, since the server determines ability to shoot anyway.
+            if (!shipDisabled)
+            {
+                //Recharge energy
+                if (energy < MaxEnergy)
+                {
+                    energy += EnergyRechargeRate * Time.deltaTime;
+                }
+            }
+            
 
-            //Recharge energy
-            if (energy < MaxEnergy)
-            {
-                energy += EnergyRechargeRate * Time.deltaTime;
-            }
-            if (crew <= 0 && !HasExploded)
-            {
-                HasExploded = true;
-                Destroy(Instantiate(ExplosionPrefab, transform.position, Quaternion.identity),1f);
-                Destroy(gameObject, 0.5f);
-            }
         }
 
         public void SetColor(Color col)
@@ -69,7 +72,7 @@ namespace com.baltamstudios.stellardomination
         
         public void MoveShip(float h, float v)
         {
-            if (shipMovement != null)
+            if (shipMovement != null && !shipDisabled)
             {
                 shipMovement.MoveShip(h, v);
             }
@@ -95,5 +98,9 @@ namespace com.baltamstudios.stellardomination
         }
 
 
+        public void Disable()
+        {
+            shipDisabled = true;
+        }
     }
 }
