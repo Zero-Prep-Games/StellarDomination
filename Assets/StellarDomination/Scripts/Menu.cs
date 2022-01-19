@@ -14,7 +14,7 @@ namespace com.baltamstudios.stellardomination
         // Start is called before the first frame update
         void Start()
         {
-
+            BGMusic.Instance.PlayIntro();
         }
 
         // Update is called once per frame

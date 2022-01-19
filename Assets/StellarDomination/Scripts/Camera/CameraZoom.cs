@@ -10,6 +10,13 @@ namespace com.baltamstudios.stellardomination
         float[] zoomSteps;
         int currZoomStep = 1;
         CameraUtils cameraUtils;
+        [SerializeField]
+        GameObject StarField;
+
+        public float MaxZoomSize
+        {
+            get { return zoomSteps[zoomSteps.Length - 1]; }
+        }
 
         public bool IsMaxZoomLevel
         {
@@ -26,6 +33,7 @@ namespace com.baltamstudios.stellardomination
         {
             cameraUtils = GetComponent<CameraUtils>();
             cameraUtils.cam.orthographicSize = zoomSteps[currZoomStep];
+            //finally, set the starfield transform inverse to the relative zoom
         }
         // Update is called once per frame
         void Update()
@@ -52,8 +60,10 @@ namespace com.baltamstudios.stellardomination
                 
 
                 cameraUtils.cam.orthographicSize = zoomSteps[currZoomStep];
+                
             }
-            
+            StarField.GetComponent<RectTransform>().transform.localScale = Vector3.one * MaxZoomSize / cameraUtils.cam.orthographicSize;
+
         }
     }
 }

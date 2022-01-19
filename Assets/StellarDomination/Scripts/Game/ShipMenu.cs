@@ -20,6 +20,7 @@ namespace com.baltamstudios.stellardomination
             {
                 Debug.Log("Couldn't find local player!");
             }
+            
         }
         public void PickFighter()
         {

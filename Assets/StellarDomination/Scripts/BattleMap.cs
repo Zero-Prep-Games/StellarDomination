@@ -46,6 +46,10 @@ namespace com.baltamstudios.stellardomination.server
             
         }
 
+        public void Start()
+        {
+            BGMusic.Instance.PlayBattle();
+        }
         public void Update()
         {
             if (isServer)
@@ -60,11 +64,11 @@ namespace com.baltamstudios.stellardomination.server
                         s.HasExploded = true; //prevent this from running on subsequent frames
                         GameObject explosion = Instantiate(ExplosionPrefab, s.transform.position + offset, Quaternion.identity);
                         NetworkServer.Spawn(explosion);
-                        Destroy(explosion, 1f);
+                        Destroy(explosion, 1.5f);
                         s.Disable();
                         s.owner.playerShip = null;
                         GetComponent<MatchEnd>().RpcShowResults(s.owner);
-                        Destroy(s.gameObject, 1f);
+                        Destroy(s.gameObject, 1.5f);
                     }
                 }
                 

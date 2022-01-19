@@ -50,6 +50,7 @@ namespace com.baltamstudios.stellardomination
                 bullet.GetComponent<Rigidbody>().AddForce(weapon.gunMuzzle.transform.forward.normalized * weapon.bulletSpeed, ForceMode.VelocityChange);
                 NetworkServer.Spawn(bullet.gameObject);
                 player.playerShip.energy -= weapon.energyCost;
+                weapon.RpcPlayNoise();
 
             }
             else if (player.playerShip != null)

@@ -10,6 +10,7 @@ namespace com.baltamstudios.stellardomination
         // Start is called before the first frame update
         [SerializeField]
         public Transform gunMuzzle;
+        AudioSource gunSound;
         
         public Bullet bulletPrefab;
         GameObject owner;
@@ -24,6 +25,13 @@ namespace com.baltamstudios.stellardomination
         void Start()
         {
             owner = gameObject;
+            gunSound = GetComponent<AudioSource>();
+        }
+
+        [ClientRpc]
+        public void RpcPlayNoise()
+        {
+            gunSound.Play();
         }
 
       

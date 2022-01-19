@@ -52,6 +52,15 @@ namespace com.baltamstudios.stellardomination
             
         }
 
+        public void FixedUpdate()
+        {
+            if (warpFlag)
+            {
+                rb.MovePosition(targetPosition);
+                warpFlag = false;
+            }
+        }
+
         void Warp(Vector3 oldVal, Vector3 newVal) 
         {
             warpFlag = true;
