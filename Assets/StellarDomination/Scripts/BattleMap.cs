@@ -40,7 +40,9 @@ namespace com.baltamstudios.stellardomination.server
 
             //Give each player acccess to their own UI.
             players[0].battleUI = player1UI;
+            player1UI.playerName = players[0].name;
             players[1].battleUI = player2UI;
+            player2UI.playerName = players[1].name;
             
         }
 
