@@ -37,10 +37,8 @@ namespace com.baltamstudios.stellardomination
         public override void OnStartLocalPlayer()
         {
             base.OnStartLocalPlayer();
-            Debug.Log("PlayerContainer for local player starting.");
+            //Debug.Log("PlayerContainer for local player starting.");
             DontDestroyOnLoad(gameObject);
-            //giving the ShipMenu a reference to the local player.
-            FindObjectOfType<ShipMenu>().playerContainer = this;
 
             string newName = "Player" + Random.Range(100, 999);
             Color color = Random.ColorHSV();

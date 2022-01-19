@@ -17,8 +17,6 @@ namespace com.baltamstudios.stellardomination.server
         public Ship[] prefabs;
         public NetworkStartPosition[] spawnPoints;
 
-        public Text WinLoseMessage;
-
         public Ship[] shipsInPlay;
 
         public override void OnStartServer()
@@ -63,26 +61,13 @@ namespace com.baltamstudios.stellardomination.server
                         Destroy(explosion, 1f);
                         s.Disable();
                         s.owner.playerShip = null;
-                        
+                        GetComponent<MatchEnd>().RpcShowResults(s.owner);
                         Destroy(s.gameObject, 1f);
                     }
                 }
                 
             }
             
-        }
-
-        public void CountLoss(PlayerContainer losingPlayer)
-        {
-            Debug.Log($"{losingPlayer.name} has lost");
-            if (losingPlayer.isLocalPlayer)
-            {
-                WinLoseMessage.text = "You Lose!";
-            }
-            else
-                WinLoseMessage.text = "You Win!";
-
-            WinLoseMessage.enabled = true;
         }
     }
 }
