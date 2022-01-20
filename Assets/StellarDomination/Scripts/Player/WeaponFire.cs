@@ -5,10 +5,10 @@ using Mirror;
 
 namespace com.baltamstudios.stellardomination
 {
-    public class WeaponFire : NetworkBehaviour
+        public class WeaponFire : NetworkBehaviour
     {
         bool firePressed = false;
-        // Weapon weapon;
+            // Weapon weapon;
         PlayerContainer player;
         private void Start()
         {
@@ -50,14 +50,21 @@ namespace com.baltamstudios.stellardomination
                 bullet.GetComponent<Rigidbody>().AddForce(weapon.gunMuzzle.transform.forward.normalized * weapon.bulletSpeed, ForceMode.VelocityChange);
                 NetworkServer.Spawn(bullet.gameObject);
                 player.playerShip.energy -= weapon.energyCost;
-                weapon.RpcPlayNoise();
-
+                RpcPlayNoise();
             }
             else if (player.playerShip != null)
             {
                 Debug.Log($"{name} Out of energy");
             }
             
+        }
+
+        [ClientRpc]
+        public void RpcPlayNoise()
+        {
+            Debug.Log($"{name}: pew pew! with {player.playerShip}");
+            if (player != null && player.playerShip != null)
+                player.playerShip.weapon.PlayNoise();
         }
             
     }

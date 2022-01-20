@@ -218,7 +218,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 2
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 9204381735910666285, guid: e412f82a2e70a8248b35354922f14d7b, type: 3}
+  playerPrefab: {fileID: 6527969059625363752, guid: 744f269347e8e124b9b4b091b603b278, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
@@ -1332,7 +1332,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138865432}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 821dbf232385c504db0a22780a637de2, type: 3}

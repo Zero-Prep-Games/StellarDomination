@@ -5,11 +5,13 @@ using Mirror;
 
 namespace com.baltamstudios.stellardomination
 {
-    public class Weapon : NetworkBehaviour
+    [RequireComponent(typeof(AudioSource))]
+    public class Weapon : MonoBehaviour
     {
         // Start is called before the first frame update
         [SerializeField]
         public Transform gunMuzzle;
+        [SerializeField]
         AudioSource gunSound;
         
         public Bullet bulletPrefab;
@@ -28,8 +30,7 @@ namespace com.baltamstudios.stellardomination
             gunSound = GetComponent<AudioSource>();
         }
 
-        [ClientRpc]
-        public void RpcPlayNoise()
+        public void PlayNoise()
         {
             gunSound.Play();
         }

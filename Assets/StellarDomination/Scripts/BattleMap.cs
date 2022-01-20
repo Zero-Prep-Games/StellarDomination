@@ -26,6 +26,11 @@ namespace com.baltamstudios.stellardomination.server
             shipsInPlay = new Ship[2];
 
             PlayerContainer[] players = FindObjectsOfType<PlayerContainer>();
+            if (players.Length == 0)
+            {
+                Debug.Log("No player objects found in scene. Reloading scene.");
+                NetworkManager.singleton.ServerChangeScene("BattleMap");
+            }
             int i = 0;
             foreach (PlayerContainer p in players)
             {

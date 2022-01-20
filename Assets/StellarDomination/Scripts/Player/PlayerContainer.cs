@@ -13,7 +13,7 @@ namespace com.baltamstudios.stellardomination
     public class PlayerContainer : NetworkBehaviour
     {
         [SyncVar]
-        public SDPlayer.ShipClass shipClass;
+        public SDPlayer.ShipClass shipClass = SDPlayer.ShipClass.cruiser;
         [SyncVar]
         public bool isReady = false;
         [SyncVar]
