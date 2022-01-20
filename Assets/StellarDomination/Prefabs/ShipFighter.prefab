@@ -153,7 +153,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerUI: {fileID: 0}
-  RotationPoint: {fileID: 0}
+  RotationPoint: {fileID: 7648863016508860417}
   crew: 25
   MaxCrew: 25
   energy: 50
@@ -248,8 +248,8 @@ MonoBehaviour:
   gunMuzzle: {fileID: 728604020487145587}
   gunSound: {fileID: 0}
   bulletPrefab: {fileID: 8515699485880891532, guid: 3d147bbd0e8c02741a73f788cdefe598, type: 3}
-  damage: 2
-  duration: 0.25
+  damage: 7
+  duration: 1
   energyCost: 10
   bulletSpeed: 100
 --- !u!65 &6388492746097085583
@@ -275,7 +275,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a8baa60867df10f4f8bbd3971f0bca4d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ec12bcf6e50a3214b9da8cbb0a6e34b6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

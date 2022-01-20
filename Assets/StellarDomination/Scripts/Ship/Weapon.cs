@@ -22,7 +22,7 @@ namespace com.baltamstudios.stellardomination
         public int energyCost = 1; //energy cost
         public float bulletSpeed = 100f;
 
-        bool firePressed = false;
+        //bool firePressed = false;
 
         void Start()
         {

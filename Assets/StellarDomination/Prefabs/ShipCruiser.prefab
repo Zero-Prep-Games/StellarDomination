@@ -153,9 +153,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerUI: {fileID: 0}
-  RotationPoint: {fileID: 0}
-  crew: 50
-  MaxCrew: 50
+  RotationPoint: {fileID: 7648863016508860417}
+  crew: 35
+  MaxCrew: 35
   energy: 25
   MaxEnergy: 25
   EnergyRechargeRate: 5

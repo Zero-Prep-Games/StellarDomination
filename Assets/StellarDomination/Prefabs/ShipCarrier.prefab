@@ -153,9 +153,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   playerUI: {fileID: 0}
-  RotationPoint: {fileID: 0}
-  crew: 90
-  MaxCrew: 90
+  RotationPoint: {fileID: 7648863016508860417}
+  crew: 60
+  MaxCrew: 60
   energy: 35
   MaxEnergy: 35
   EnergyRechargeRate: 7
@@ -251,7 +251,7 @@ MonoBehaviour:
   damage: 25
   duration: 2.5
   energyCost: 10
-  bulletSpeed: 75
+  bulletSpeed: 50
 --- !u!65 &6388492746097085583
 BoxCollider:
   m_ObjectHideFlags: 0
